@@ -24,7 +24,7 @@ import java.time.LocalDate;
 
 
 public class Reporte extends AppCompatActivity {
-    String paciente;
+    String paciente,id;
     TextView descripcion;
     Button boton;
     @Override
@@ -34,6 +34,8 @@ public class Reporte extends AppCompatActivity {
         boton=findViewById(R.id.aceptar);
         descripcion=findViewById(R.id.descripcion);
         paciente=getIntent().getExtras().getString("paciente");
+        id=getIntent().getExtras().getString("id");
+
         ((TextView)findViewById(R.id.paciente)).setText(paciente);
     }
 
@@ -54,7 +56,7 @@ public class Reporte extends AppCompatActivity {
             builder.addConverterFactory(GsonConverterFactory.create());
             Retrofit r = builder.build();
             QrEMAPI qrEMAPI = r.create(QrEMAPI.class);
-            Call<Mensjae> call = qrEMAPI.hacerReporte(paciente,cedula,descripcion,contrassenia);
+            Call<Mensjae> call = qrEMAPI.hacerReporte(id,cedula,descripcion,contrassenia);
 
             call.enqueue(new Callback<Mensjae>() {
                 @Override

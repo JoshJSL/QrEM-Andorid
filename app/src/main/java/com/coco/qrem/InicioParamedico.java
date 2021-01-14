@@ -98,6 +98,7 @@ public class InicioParamedico extends AppCompatActivity {
                     i.putExtra("peso", paciente.getPeso() + "");
                     i.putExtra("seguro", paciente.getSeguro());
                     i.putExtra("tipoSangre", paciente.getTipoSangre());
+                    i.putExtra("id",id);
                     startActivity(i);
                 }
 

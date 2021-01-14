@@ -44,6 +44,7 @@ public class InforamcionPaciente extends AppCompatActivity {
     public void continuar(View vw){
         Intent i= new Intent(this, Reporte.class);
         i.putExtra("paciente", paciente);
+        i.putExtra("id",this.getIntent().getExtras().getString("id"));
         startActivity(i);
         this.finish();
     }
